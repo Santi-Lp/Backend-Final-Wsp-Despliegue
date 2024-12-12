@@ -6,6 +6,7 @@ import authRouter from "./Routes/authRoutes.js";
 import mensajeRouter from "./Routes/messageRoutes.js";
 import contactRouter from "./Routes/contactRoutes.js";
 import cors from "cors";
+import { verifyApikeyMiddleware } from "./middlewares/authMiddleware.js";
 
 
 
@@ -15,6 +16,7 @@ const PORT = ENVIROMENT.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
 
 app.use("/api/status" , statusRouter)
 app.use("/api/auth" ,  authRouter)

@@ -154,7 +154,7 @@ export const login = async (req, res) => {
             .build()
             return res.status(400).json(response)
         }
-        const token = jwt.sign({email: user.email, id: user._id}, ENVIROMENT.JWT_SECRET, {expiresIn: "1d"})
+        const token = jwt.sign({email: user.email, id: user._id, rol: user.rol}, ENVIROMENT.JWT_SECRET, {expiresIn: "1d"})
         const response = new ResponseBuilder()
         .setOK(true)
         .setStatus(200)
@@ -164,7 +164,9 @@ export const login = async (req, res) => {
             user: {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                rol : user.rol
+
             }
         })
         .build()

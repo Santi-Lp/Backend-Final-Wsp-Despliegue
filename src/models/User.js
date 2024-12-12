@@ -6,7 +6,10 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
     number: { type: String, required: true },
     emailVerified: { type: Boolean, default: false },
-    verificationToken: { type: String },   
+    verificationToken: { type: String }, 
+    rol: {
+        type: String, required: true, default: "user",
+    },
     contacto: [
         {
             type: mongoose.Schema.Types.ObjectId,
