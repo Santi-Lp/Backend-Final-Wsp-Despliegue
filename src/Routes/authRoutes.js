@@ -1,6 +1,6 @@
 import express from "express";
 import { login, register, verifyEmailValidationTokenController } from "../controllers/authController.js";
-import { authenticate } from "../middlewares/authMiddleware.js";
+import { authenticate, verifyApikeyMiddleware } from "../middlewares/authMiddleware.js";
 import { validateLogin, validateRegister } from "../middlewares/validation.middleware.js";
 import { getProfile } from "../controllers/user.controller.js";
 
