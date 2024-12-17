@@ -14,7 +14,7 @@ import { verifyApikeyMiddleware } from "./middlewares/authMiddleware.js";
 const app = express();
 const PORT = ENVIROMENT.PORT || 5000;
 
-app.use(cors({origin: "*"}));
+app.use(cors());
 app.use(express.json());
 app.use(verifyApikeyMiddleware)
 
