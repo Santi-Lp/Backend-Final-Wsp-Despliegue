@@ -42,6 +42,9 @@ export const authenticate = (roles_permitidos = []) => {
 
 export const verifyApikeyMiddleware = (req, res, next) => {
     try {
+        if (req.method === "OPTIONS") {
+            return res.status(204).send();
+        }
         const apikeyHeader = req.headers['x-api-key'];
         if (!apikeyHeader) {
             const response = new ResponseBuilder()

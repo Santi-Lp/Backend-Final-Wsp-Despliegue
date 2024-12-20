@@ -34,7 +34,8 @@ export const register = async (req, res ) => {
         const hashedPassword = await bycrypt.hash(password, 10)
         const verificationToken = jwt.sign({ email: email }, ENVIROMENT.JWT_SECRET, { expiresIn: "1d" })
 
-        const url_verify = `http://localhost:${ENVIROMENT.PORT}/api/auth/verify/${verificationToken}`
+        const url_verify = `${ENVIROMENT.URL_FRONT}/api/auth/verify/${verificationToken}`;
+
         await sendEmail({
             to: email,
             subject: "Verificacion de cuenta",
