@@ -17,6 +17,7 @@ const PORT = ENVIROMENT.PORT || 5000;
 const corsOptions = {
     origin: ["http://localhost:5173", "https://proyecto-frontend-final-wsp-despliegue.vercel.app" ],
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
 }    
 
 app.use(cors(corsOptions))

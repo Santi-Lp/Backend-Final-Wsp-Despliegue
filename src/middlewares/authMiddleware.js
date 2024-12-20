@@ -41,6 +41,7 @@ export const authenticate = (roles_permitidos = []) => {
 
 
 export const verifyApikeyMiddleware = (req, res, next) => {
+    console.log("Headers Recinbidos", req.headers);
     try {
         const apikeyHeader = req.headers['x-api-key'];
         if (!apikeyHeader) {
