@@ -89,7 +89,16 @@ export const verifyEmailValidationTokenController = async (req, res) =>  {
             .build()
             return res.status(400).json(response)
         }
-        const decoded = jwt.verify(verificationToken, ENVIROMENT.JWT_SECRET)
+        try{
+            const decoded = jwt.verify(verificationToken, ENVIROMENT.JWT_SECRET);
+        }catch(error){
+            const response = new ResponseBuilder()
+            .setOK(false)
+            .setStatus(400)
+            .setMessage("El token es invalido")
+            .build()
+            return res.status(400).json(response)
+        }
         const user = await UserRepository.encontrarContactosPorUsuario({email: decoded.email})
 
         if(!user){

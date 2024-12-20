@@ -41,7 +41,6 @@ export const authenticate = (roles_permitidos = []) => {
 
 
 export const verifyApikeyMiddleware = (req, res, next) => {
-    console.log("Headers Recinbidos", req.headers);
     try {
         const apikeyHeader = req.headers['x-api-key'];
         if (!apikeyHeader) {
@@ -52,7 +51,6 @@ export const verifyApikeyMiddleware = (req, res, next) => {
                 .build();
             return res.status(401).json(response);
         }
-
         if (apikeyHeader !== ENVIROMENT.API_KEY_INTERN) {
             const response = new ResponseBuilder()
                 .setOK(false)
@@ -61,11 +59,8 @@ export const verifyApikeyMiddleware = (req, res, next) => {
                 .build();
             return res.status(403).json(response);
         }
-
         next();
-
-    }
-    catch (error) {
+    } catch (error) {
         const response = new ResponseBuilder()
             .setOK(false)
             .setStatus(500)
@@ -73,6 +68,5 @@ export const verifyApikeyMiddleware = (req, res, next) => {
             .setPayload({ detail: error.message })
             .build();
         return res.status(500).json(response);
-
     }
-}
+};
