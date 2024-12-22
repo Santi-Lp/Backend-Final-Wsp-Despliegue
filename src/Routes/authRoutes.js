@@ -6,7 +6,7 @@ import { getProfile } from "../controllers/user.controller.js";
 
 const authRouter = express.Router();
 
-authRouter.post("/register", verifyApikeyMiddleware,validateRegister, register);
+authRouter.post("/register",validateRegister, register);
 authRouter.get("/verify/:verificationToken" ,verifyEmailValidationTokenController);
 authRouter.post("/login", verifyApikeyMiddleware, validateLogin ,login);
 authRouter.get("/me", authenticate, getProfile);
