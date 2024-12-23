@@ -9,7 +9,8 @@ const ENVIROMENT= {
     EMAIL_PASS: process.env.EMAIL_PASS,
     EMAIL_USER: process.env.EMAIL_USER,
     API_KEY_INTERN: process.env.API_KEY_INTERN,
-    URL_FRONT: process.env.URL_FRONT
+    URL_FRONT: process.env.URL_FRONT,
+    BACKEND_URL: process.env.BACKEND_URL
 }
 
 export default ENVIROMENT
