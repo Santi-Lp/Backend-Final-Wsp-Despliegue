@@ -8,7 +8,7 @@ const authRouter = express.Router();
 
 authRouter.post("/register",validateRegister, register);
 authRouter.get("/verify/:verificationToken" ,verifyEmailValidationTokenController);
-authRouter.post("/login", verifyApikeyMiddleware, validateLogin ,login);
+authRouter.post("/login", validateLogin ,login);
 authRouter.get("/me", authenticate, getProfile);
 
 export default authRouter
